@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore dev database stuff
+migrations/
+twitoff_dev_14.db
