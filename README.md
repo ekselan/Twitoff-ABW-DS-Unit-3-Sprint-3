@@ -1,6 +1,15 @@
 # Twitoff-ABW-DS-Unit-3-Sprint-3
 Unit 3 Sprint 3 Twitoff app
 
+## Installation
+
+TODO: clone the repo
+
+## Usage
+```sh
+FLASK_APP=abw_app flask run
+```
+
 ## Defining a basic Flask app
 ```
 # hello.py
