@@ -4,6 +4,7 @@ from flask import Flask
 
 from abw_app.routes.home_routes import home_routes
 from abw_app.routes.book_routes import book_routes
+from abw_app.routes.user_routes import user_routes
 from abw_app.models import db, migrate
 
 # DATABASE_URI = "sqlite:///web_app_99.db" # using relative filepath
@@ -25,6 +26,7 @@ def create_app():
 
     app.register_blueprint(home_routes)
     app.register_blueprint(book_routes)
+    app.register_blueprint(user_routes)
     return app
 
 

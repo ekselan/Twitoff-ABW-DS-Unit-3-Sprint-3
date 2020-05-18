@@ -17,6 +17,11 @@ class Book(db.Model):
     title = db.Column(db.String(128))
     author_id = db.Column(db.String(128))
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    email = db.Column(db.String(300), unique=True, nullable=False)
+
 
 def parse_records(database_records):
     """
