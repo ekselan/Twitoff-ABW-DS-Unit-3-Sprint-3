@@ -12,11 +12,12 @@ def list_users():
     Return results in machine-readable form
     """
     users = [
-        {"id": 1, "username": "@aaron", "email" : "aaron@gmail.com"},
-        {"id": 2, "username": "@mercedes", "email" : "mercedes@yahoo.com"},
-        {"id": 3, "username": "@omar", "email" : "omar@att.net"},
+        {"id": 1, "username": "@aaron", "email": "aaron@gmail.com"},
+        {"id": 2, "username": "@mercedes", "email": "mercedes@yahoo.com"},
+        {"id": 3, "username": "@omar", "email": "omar@att.net"},
     ]
     return jsonify(users)
+
 
 @user_routes.route("/users")
 def list_users_for_humans():
@@ -24,9 +25,9 @@ def list_users_for_humans():
     Return results in HTML (web page) style
     """
     t_users = [
-        {"id": 1, "username": "@rvr3_ekselan", "email" : "acewatguy@gmail.com"},
-        {"id": 2, "username": "@mjp30004", "email" : "macparis@yahoo.com"},
-        {"id": 3, "username": "@maybach_o", "email" : "spartan_dawgs@att.net"},
+        {"id": 1, "username": "@rvr3_ekselan", "email": "acewatguy@gmail.com"},
+        {"id": 2, "username": "@mjp30004", "email": "macparis@yahoo.com"},
+        {"id": 3, "username": "@maybach_o", "email": "spartan_dawgs@att.net"},
     ]
 
     # SELECT * FROM users
@@ -36,9 +37,11 @@ def list_users_for_humans():
     return render_template(
         "users.html", message="Here's some users", users=user_records)
 
+
 @user_routes.route("/users/new")
 def new_user():
     return render_template("new_users.html")
+
 
 @user_routes.route("/users/create", methods=["POST"])
 def create_user():
@@ -56,5 +59,4 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
 
-    
     return redirect("/users")
