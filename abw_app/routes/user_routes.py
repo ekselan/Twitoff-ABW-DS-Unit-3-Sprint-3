@@ -29,9 +29,32 @@ def list_users_for_humans():
         {"id": 3, "username": "@maybach_o", "email" : "spartan_dawgs@att.net"},
     ]
 
-    # # SELECT * FROM users
-    # user_records = User.query.all()
-    # print(user_records)
+    # SELECT * FROM users
+    user_records = User.query.all()
+    print(user_records)
 
     return render_template(
-        "users.html", message="Here's some users", users=t_users)
+        "users.html", message="Here's some users", users=user_records)
+
+@user_routes.route("/users/new")
+def new_user():
+    return render_template("new_users.html")
+
+@user_routes.route("/users/create", methods=["POST"])
+def create_user():
+    print("FORM DATA:", dict(request.form))
+
+    # return jsonify({
+    #     "message": "USER CREATED OK",
+    #     "user": dict(request.form)
+    # })
+
+    # INSERT INTO users ... (store data in the database)
+    new_user = User(
+        username=request.form["username"],
+        email=request.form["email"])
+    db.session.add(new_user)
+    db.session.commit()
+
+    
+    return redirect("/users")

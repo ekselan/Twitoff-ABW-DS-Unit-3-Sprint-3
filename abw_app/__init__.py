@@ -28,6 +28,7 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(book_routes)
     app.register_blueprint(user_routes)
+    app.register_blueprint(tweet_routes)
     return app
 
 
