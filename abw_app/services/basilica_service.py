@@ -20,7 +20,7 @@ print(type(connection))
 embeddings = list(connection.embed_sentences(sentences))
 for embed in embeddings:
     print("-------------")
-    print(embed)
+    print(embed) #> list with 768 floats from -1 to 1
 
 breakpoint()
 

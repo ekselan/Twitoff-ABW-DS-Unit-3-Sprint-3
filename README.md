@@ -23,7 +23,7 @@ FLASK_APP=web_app flask db upgrade #> creates the specified tables
 
 
 
-# Examples / Code snippets (from lecture)
+# Examples / Code snippets (from lecture I)
 
 ### Defining a basic Flask app
 ```py
@@ -254,4 +254,56 @@ print(book_records)
 new_book = Book(title=request.form["title"], author_id=request.form["author_name"])
 db.session.add(new_book)
 db.session.commit()
+```
+
+
+# Examples / Code snippets (from lecture II)
+
+### Basilica installation:
+```sh
+pipenv install python-dotenv requests basilica tweepy
+```
+### Example .env file:
+```py
+# .env
+ALPHAVANTAGE_API_KEY="abc123"
+
+BASILICA_API_KEY="_______________________"
+
+TWITTER_API_KEY="_______________________"
+TWITTER_API_SECRET="_______________________"
+TWITTER_ACCESS_TOKEN="_______________________"
+TWITTER_ACCESS_TOKEN_SECRET="_______________________"
+```
+
+### Basic basilica usage/implementation:
+```py
+from basilica import Connection
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+BASILICA_API_KEY = os.getenv("BASILICA_API_KEY", default="OOPS")
+
+sentences = [
+    "This is a sentence!",
+    "This is a similar sentence!",
+    "I don't think this sentence is very similar at all...",
+]
+
+connection = Connection(BASILICA_API_KEY)
+print(type(connection))
+
+
+embeddings = list(connection.embed_sentences(sentences))
+for embed in embeddings:
+    print("-------------")
+    print(embed) #> list with 768 floats from -1 to 1
+
+breakpoint()
+
+embedding = connection.embed_sentence("Hello World")
+print(embedding) #> list with 768 floats from -1 to 1
 ```
