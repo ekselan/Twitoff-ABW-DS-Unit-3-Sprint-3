@@ -5,6 +5,7 @@ from flask import Flask
 from abw_app.routes.home_routes import home_routes
 from abw_app.routes.book_routes import book_routes
 from abw_app.routes.user_routes import user_routes
+from abw_app.routes.tweet_routes import tweet_routes
 from abw_app.models import db, migrate
 
 # DATABASE_URI = "sqlite:///web_app_99.db" # using relative filepath

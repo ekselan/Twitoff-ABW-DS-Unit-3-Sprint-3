@@ -22,6 +22,10 @@ class User(db.Model):
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(300), unique=True, nullable=False)
 
+class Tweet(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tweet = db.Column(db.String(400), unique=True, nullable=False)
+
 
 def parse_records(database_records):
     """

@@ -18,20 +18,20 @@ def list_users():
     ]
     return jsonify(users)
 
-# @user_routes.route("/users")
-# def list_users_for_humans():
-#     """
-#     Return results in HTML (web page) style
-#     """
-#     # users = [
-#     #     {"id": 1, "username": "@rvr3_ekselan", "email" : "acewatguy@gmail.com"},
-#     #     {"id": 2, "username": "@mjp30004", "email" : "macparis@yahoo.com"},
-#     #     {"id": 3, "username": "@maybach_o", "email" : "spartan_dawgs@att.net"},
-#     # ]
+@user_routes.route("/users")
+def list_users_for_humans():
+    """
+    Return results in HTML (web page) style
+    """
+    t_users = [
+        {"id": 1, "username": "@rvr3_ekselan", "email" : "acewatguy@gmail.com"},
+        {"id": 2, "username": "@mjp30004", "email" : "macparis@yahoo.com"},
+        {"id": 3, "username": "@maybach_o", "email" : "spartan_dawgs@att.net"},
+    ]
 
-#     # SELECT * FROM books
-#     book_records = Book.query.all()
-#     print(book_records)
+    # # SELECT * FROM users
+    # user_records = User.query.all()
+    # print(user_records)
 
-#     return render_template(
-#         "books.html", message="Here's some books", books=book_records)
+    return render_template(
+        "users.html", message="Here's some users", users=t_users)
