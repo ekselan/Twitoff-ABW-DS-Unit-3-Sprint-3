@@ -11,7 +11,8 @@ from abw_app.models import db, migrate
 
 # DATABASE_URI = "sqlite:///web_app_99.db" # using relative filepath
 # using absolute filepath on Mac (recommended)
-DATABASE_URI = "sqlite:////Users/ekselan/Documents/GitHub/33_Repo_DS14_Twitoff/Twitoff-ABW-DS-Unit-3-Sprint-3/twitoff_dev_14.db"
+# DATABASE_URI = "sqlite:////Users/ekselan/Documents/GitHub/33_Repo_DS14_Twitoff/Twitoff-ABW-DS-Unit-3-Sprint-3/twitoff_dev_14.db"
+DATABASE_URI = "sqlite:////Users/ekselan/Documents/GitHub/33_Repo_DS14_Twitoff/Twitoff-ABW-DS-Unit-3-Sprint-3/twitoff_II.db"
 # DATABASE_URI =
 # "sqlite:///C:\\Users\\Username\\Desktop\\your-repo-name\\web_app_99.db"
 # # using absolute filepath on Windows (recommended) h/t:

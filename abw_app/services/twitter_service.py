@@ -19,34 +19,37 @@ api = tweepy.API(auth)
 print("API", api)
 # print(dir(api))
 
-#
-# how to get information about a given twitter user?
-#
-user = api.get_user("_ekselan")
-# > <class 'tweepy.models.User'>
-# pprint(user._json)
-print(user.id)
-print(user.screen_name)
-print(user.friends_count)
-print(user.followers_count)
+if __name__ == "__main__":
+    
+    screen_name = input("Please input a twitter screen name")
+    #
+    # how to get information about a given twitter user?
+    #
+    user = api.get_user(screen_name)
+    # > <class 'tweepy.models.User'>
+    # pprint(user._json)
+    print(user.id)
+    print(user.screen_name)
+    print(user.friends_count)
+    print(user.followers_count)
 
-#
-# how to get tweets from a given twitter user?
-#
+    #
+    # how to get tweets from a given twitter user?
+    #
 
-#statuses = api.user_timeline("s2t2")
-statuses = api.user_timeline(
-    "_ekselan",
-    tweet_mode="extended",
-    count=150,
-    exclude_replies=True,
-    include_rts=False)
-#status = statuses[0]
-# pprint(dir(status))
-# pprint(status._json)
-# print(status.id)
-# print(status.full_text)
+    #statuses = api.user_timeline("s2t2")
+    statuses = api.user_timeline(
+        screen_name,
+        tweet_mode="extended",
+        count=150,
+        exclude_replies=True,
+        include_rts=False)
+    #status = statuses[0]
+    # pprint(dir(status))
+    # pprint(status._json)
+    # print(status.id)
+    # print(status.full_text)
 
-for status in statuses:
-    print("----")
-    print(status.full_text)
+    for status in statuses:
+        print("----")
+        print(status.full_text)

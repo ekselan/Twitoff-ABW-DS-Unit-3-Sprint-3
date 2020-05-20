@@ -19,14 +19,20 @@ class Book(db.Model):
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    email = db.Column(db.String(300), unique=True, nullable=False)
+    id = db.Column(db.BigInteger, primary_key=True)
+    screen_name = db.Column(db.String(128), nullable=False)
+    name = db.Column(db.String)
+    location = db.Column(db.String)
+    followers_count = db.Column(db.Integer)
 
 
 class Tweet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    tweet = db.Column(db.String(400), unique=True, nullable=False)
+    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
+    tweet = db.Column(db.String(500), unique=True, nullable=False)
+    embedding = db.Column(db.PickleType)
+
+    user = db.relationship("User", backref=db.backref("tweets", lazy=True))
 
 
 def parse_records(database_records):

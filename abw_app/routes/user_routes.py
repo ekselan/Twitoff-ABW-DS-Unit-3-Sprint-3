@@ -25,9 +25,9 @@ def list_users_for_humans():
     Return results in HTML (web page) style
     """
     t_users = [
-        {"id": 1, "username": "@rvr3_ekselan", "email": "acewatguy@gmail.com"},
-        {"id": 2, "username": "@mjp30004", "email": "macparis@yahoo.com"},
-        {"id": 3, "username": "@maybach_o", "email": "spartan_dawgs@att.net"},
+        {"id": 1, "screen_name": "@_ekselan", "name": "Aaron", "location": "GA", "followers_count": 190},
+        {"id": 2, "screen_name": "@mjp30004", "name": "Mercedes", "location": "GA", "followers_count": 500},
+        {"id": 3, "screen_name": "@maybacho", "name": "Omar", "location": "CT", "followers_count": 350},
     ]
 
     # SELECT * FROM users
@@ -54,8 +54,10 @@ def create_user():
 
     # INSERT INTO users ... (store data in the database)
     new_user = User(
-        username=request.form["username"],
-        email=request.form["email"])
+        screen_name=request.form["screen_name"],
+        name=request.form["name"],
+        location=request.form["location"],
+        followers_count=request.form["followers_count"])
     db.session.add(new_user)
     db.session.commit()
 
