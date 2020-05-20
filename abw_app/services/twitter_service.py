@@ -14,9 +14,12 @@ TWITTER_ACCESS_TOKEN_SECRET = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
 auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
 print("AUTH", auth)
+print("--------------")
 
 api = tweepy.API(auth)
 print("API", api)
+print("--------------")
+
 # print(dir(api))
 
 if __name__ == "__main__":
@@ -28,10 +31,14 @@ if __name__ == "__main__":
     user = api.get_user(screen_name)
     # > <class 'tweepy.models.User'>
     # pprint(user._json)
-    print(user.id)
-    print(user.screen_name)
-    print(user.friends_count)
-    print(user.followers_count)
+    print("Id:", user.id)
+    print("--------------")
+    print("Screen name:", user.screen_name)
+    print("--------------")
+    print("Following:", user.friends_count)
+    print("--------------")
+    print("Followers:", user.followers_count)
+    print("--------------")
 
     #
     # how to get tweets from a given twitter user?
